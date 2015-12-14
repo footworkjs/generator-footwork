@@ -68,13 +68,13 @@ module.exports = yeoman.generators.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('.gitignore'),
+      this.templatePath('gitignore'),
       this.destinationPath('.gitignore'),
       params
     );
 
     this.fs.copyTpl(
-      this.templatePath('.bowerrc'),
+      this.templatePath('bowerrc'),
       this.destinationPath('.bowerrc'),
       params
     );
