@@ -1,8 +1,7 @@
 {
   "name": "generator-footwork",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "FootworkJS skeleton application generator",
-  "homepage": "http://footworkjs.com",
   "author": {
     "name": "Jonathan Newman",
     "email": "jonathan@staticty.pe",

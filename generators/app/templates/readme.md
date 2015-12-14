@@ -21,7 +21,7 @@ Files/directories of note:
 
 ### Running this code/website
 
-*Note that steps 1 and 2 are not necessary if you installed via Yeoman.*
+> *Note that steps 1 and 2 are not necessary if you installed via Yeoman.*
 
 1) **Clone the repo from here:**
 
