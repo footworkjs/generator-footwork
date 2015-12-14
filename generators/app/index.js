@@ -14,7 +14,7 @@ module.exports = yeoman.generators.Base.extend({
   prompting: function () {
     var done = this.async();
 
-    this.log(chalk.red('FootworkJS') + ' application scaffolding generator');
+    this.log(chalk.red('FootworkJS') + ' application scaffolding generator.');
 
     var prompts = [{
       name: 'publicFolder',
