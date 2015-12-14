@@ -1,24 +1,85 @@
 # generator-footwork [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> FootworkJS skeleton application generator
+
+[FootworkJS](http://footworkjs.com) skeleton application generator.
+
+For more info please visit the official site: http://footworkjs.com
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-footwork using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+1. Verify that Yeoman is installed
 
-```bash
-npm install -g yo
-npm install -g generator-footwork
+  ```shell
+  npm install -g yo
+  ```
+2. Install this generator
+
+  ```shell
+  npm install -g generator-footwork
+  ```
+
+3. Ensure that [Gulp](http://gulpjs.com/) is installed. If you need to install it, use the following command:
+
+  ```shell
+  npm install -g gulp
+  ```
+4. Ensure that [Bower](http://bower.io/) is installed. If you need to install it, use the following command:
+
+  ```shell
+  npm install -g bower
+  ```
+
+5. Create a new project folder and move into it in the terminal
+
+  ```shell
+  mkdir YOUR_PROJECT_NAME
+  cd YOUR_PROJECT_NAME
+  ```
+
+6. Execute the following command
+
+  ```shell
+  yo footwork
+  ```
+
+## Building the CSS and JS and/or watching for changes
+
+Out of the box, this application will not require the javascript to be re-built every time you change it because it loads them by default in their uncombined forms. The CSS however needs to be recompiled after each change. To build these do one of the following:
+
+```shell
+# Compile the LESS code into CSS (outputs to css/app.css)
+gulp build-css
 ```
 
-Then generate your new project:
-
-```bash
-yo footwork
+```shell
+# Compile and minify the JS code (outputs to scripts/main-build.js)
+gulp build-js
 ```
 
-## Getting To Know Yeoman
+```shell
+# Do both CSS and JS compilations (the default task)
+gulp
+```
 
-Yeoman has a heart of gold. He&#39;s a person with feelings and opinions, but he&#39;s very easy to work with. If you think he&#39;s too opinionated, he can be easily convinced. Feel free to [learn more about him](http://yeoman.io/).
+```bash
+# Watch the CSS and Javascript files for changes and recompile the assets as needed
+gulp watch
+
+# Watch the CSS files for changes and recompile as needed
+gulp watch-css
+
+# Watch the Javascript files for changes and recompile as needed
+gulp watch-js
+```
+
+## Running this application
+
+If you do not have a webserver ready to host this application, then you can use the included static file server. To run that do the following:
+
+```shell
+gulp webserver
+```
+
+You can now access the site at: [http://localhost:8000](http://localhost:8000) (or whatever host you have it running on, this assumes localhost)
 
 ## License
 
