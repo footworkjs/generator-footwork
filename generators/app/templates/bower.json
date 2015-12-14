@@ -1,0 +1,12 @@
+{
+  "name": "FootworkJS Skeleton",
+  "version": "1.0",
+  "description": "FootworkJS Skeleton Application",
+  "author": "Jonathan Newman <jonathan@staticty.pe>",
+  "dependencies": {
+    "footwork": "1.1.0",
+    "bootstrap": "3.3.6",
+    "requirejs": "2.1.22",
+    "requirejs-text": "2.0.14"
+  }
+}

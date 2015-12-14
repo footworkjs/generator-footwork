@@ -1,0 +1,4 @@
+<%= publicFolder %>/bower_components
+/node_modules
+<%= publicFolder %>/scripts/main-build.js
+<%= publicFolder %>/css/app.css

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <base href="/">
+
+    <title>FootworkJS Skeleton Application</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    
+    <link rel="stylesheet" href="bower_components/footwork/dist/animation/animation.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link href="css/app.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <main>
+      <viewModel module="ExampleViewModel">
+        Hello <span data-bind="text: something"></span>!
+      </viewModel>
+
+      <my-component></my-component>
+    </main>
+
+    <!-- RequireJS configuration needed for both the built and non-built versions of the application -->
+    <script src="scripts/require-config.js"></script>
+
+    <!--
+      To run the minified/compiled version of the application include this <script> tag instead of the default one:
+      <script src="scripts/main-build.js"></script>
+    -->
+
+    <script src="bower_components/requirejs/require.js" data-main="/scripts/app/main"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Test Runner</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+  </head>
+
+  <body>
+    <div id="mocha"></div>
+
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/expect/umd/expect.js"></script>
+
+    <script>mocha.setup('bdd')</script>
+    <script src="tests.js"></script>
+
+    <script src="../<%= publicFolder %>/scripts/require-config.js"></script>
+    <script src="../node_modules/requirejs/require.js" data-main="test-loader.js"></script>
+  </body>
+</html>
