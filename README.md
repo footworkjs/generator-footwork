@@ -100,7 +100,7 @@ gulp watch-tests
 
 Run them automatically with a watch task which compiles everything and runs the tests everytime a change is detected:
 ```bash
-# Watch the CSS and Javascript files for changes and recompile the assets as needed
+# Watch the Javascript files for changes and run tests as needed
 gulp watch-and-test
 ```
 
