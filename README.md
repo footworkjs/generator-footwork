@@ -61,12 +61,16 @@ gulp
 ```
 
 ```bash
-# Watch the CSS and Javascript files for changes and recompile the assets as needed
+# Watch the CSS and Javascript files for changes and recompile as needed
 gulp watch
+```
 
+```bash
 # Watch the CSS files for changes and recompile as needed
 gulp watch-css
+```
 
+```bash
 # Watch the Javascript files for changes and recompile as needed
 gulp watch-js
 ```
@@ -77,6 +81,38 @@ If you do not have a webserver ready to host this application, then you can use 
 
 ```shell
 gulp webserver
+```
+
+### Running Unit Tests
+
+The included test runner is [Karma](http://karma-runner.github.io/), to run the unit tests you can either:
+
+Run them manually via Gulp:
+```bash
+# Run the unit tests under /tests
+gulp tests
+```
+
+Run them automatically with a watch task which runs the tests everytime a change is detected:
+```bash
+gulp watch-tests
+```
+
+Run them automatically with a watch task which compiles everything and runs the tests everytime a change is detected:
+```bash
+# Watch the CSS and Javascript files for changes and recompile the assets as needed
+gulp watch-and-test
+```
+
+Run them via Karma directly. Note that you need to have Karma CLI installed:
+```bash
+# If you need to install Karma CLI, use the following command
+npm install -g karma-cli
+```
+
+```bash
+# Once Karma CLI is installed, you can run the tests with:
+karma start
 ```
 
 You can now access the site at: [http://localhost:8000](http://localhost:8000) (or whatever host you have it running on, this assumes localhost)

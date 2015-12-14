@@ -39,6 +39,7 @@ module.exports = yeoman.generators.Base.extend({
 
     this.directory('scripts', path.join(publicFolder, 'scripts'));
     this.directory('css', path.join(publicFolder, 'css'));
+    this.directory('tests', 'tests');
 
     this.fs.copyTpl(
       this.templatePath('require-config.js'),
@@ -85,15 +86,9 @@ module.exports = yeoman.generators.Base.extend({
       params
     );
 
-    this.fs.copy(this.templatePath('spec/tests.js'), this.destinationPath('spec/tests.js'));
     this.fs.copyTpl(
-      this.templatePath('spec/test-loader.js'),
-      this.destinationPath('spec/test-loader.js'),
-      params
-    );
-    this.fs.copyTpl(
-      this.templatePath('spec/runner.html'),
-      this.destinationPath('spec/runner.html'),
+      this.templatePath('karma.conf.js'),
+      this.destinationPath('karma.conf.js'),
       params
     );
   },

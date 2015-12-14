@@ -4,13 +4,20 @@
     "gulp": "3.9.0",
     "requirejs": "2.1.22",
     "requirejs-text": "2.0.12",
+    "lodash": "3.10.1",
+    "path": "*"
+  },
+  "devDependencies": {
     "gulp-webserver": "0.9.1",
     "expect": "1.13.2",
-    "path": "*",
-    "gulp-mocha-phantomjs": "0.10.1",
     "gulp-watch": "4.3.5",
     "gulp-less": "3.0.5",
-    "mocha": "2.3.4",
-    "lodash": "3.10.1"
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.15",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-requirejs": "^0.2.2",
+    "karma-spec-reporter": "0.0.23",
+    "phantomjs": "^1.9.19"
   }
 }

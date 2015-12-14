@@ -4,12 +4,12 @@ var _ = require('lodash');
 var less = require('gulp-less');
 var watch = require('gulp-watch');
 var webserver = require('gulp-webserver');
-var mochaPhantomJS = require('gulp-mocha-phantomjs');
 var path = require('path');
+var Server = require('karma').Server;
 
 gulp.task('default', ['build-css', 'build-js']);
 
-gulp.task('build-js', function() {
+gulp.task('build-js', function () {
   var requireConfig = require(__dirname + '/<%= publicFolder %>/scripts/require-config.js');
 
   return rjs.optimize(_.extend(requireConfig, {
@@ -25,7 +25,7 @@ gulp.task('build-js', function() {
   }));
 });
 
-gulp.task('build-css', function() {
+gulp.task('build-css', function () {
   return gulp.src('./<%= publicFolder %>/css/app.less')
     .pipe(less({
       paths: [
@@ -38,15 +38,28 @@ gulp.task('build-css', function() {
 
 gulp.task('watch', ['watch-css', 'watch-js']);
 
+gulp.task('watch-and-test', ['watch-css', 'watch-js', 'watch-tests']);
+
 gulp.task('watch-css', function() {
   gulp.watch('<%= publicFolder %>/**/*.less', ['build-css']);
 });
 
-gulp.task('watch-js', function() {
+gulp.task('watch-js', function () {
   gulp.watch(['<%= publicFolder %>/scripts/app/**/*.js', '<%= publicFolder %>/scripts/require-config.js'], ['build-js']);
 });
 
-gulp.task('webserver', function() {
+gulp.task('watch-tests', function () {
+  gulp.watch(['<%= publicFolder %>/scripts/app/**/*.js', '<%= publicFolder %>/scripts/require-config.js'], ['tests']);
+});
+
+gulp.task('tests', function (done) {
+  return new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
+
+gulp.task('webserver', function () {
   gulp.src('<%= publicFolder %>')
     .pipe(webserver({
       host: '0.0.0.0',
@@ -56,10 +69,4 @@ gulp.task('webserver', function() {
       port: 8000,
       open: true
     }));
-});
-
-gulp.task('tests', function() {
-  return gulp
-    .src('spec/runner.html')
-    .pipe(mochaPhantomJS({ reporter: 'list' }));
 });
