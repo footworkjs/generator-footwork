@@ -95,15 +95,15 @@ module.exports = yeoman.generators.Base.extend({
 
   install: function () {
     this.installDependencies();
+  },
 
+  end: function() {
     console.log();
     notate('Building the Javascript and CSS...');
     console.log();
 
     this.spawnCommandSync('gulp');
-  },
 
-  end: function() {
     console.log();
     notate('Thanks for trying out FootworkJS!');
 

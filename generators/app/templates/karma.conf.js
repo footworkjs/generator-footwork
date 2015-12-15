@@ -17,6 +17,7 @@ module.exports = function(config) {
     files: [
       'public/scripts/require-config.js',
       'tests/test-main.js',
+      'tests/footwork-test-helper.js',
       'node_modules/jquery/dist/jquery.js',
       'tests/fixtures/**/*.html',
       {pattern: 'tests/**/*.spec.js', included: false},
