@@ -52,13 +52,7 @@ You can now access the site at: [http://localhost:8000](http://localhost:8000) (
 
 The included test runner is [Karma](http://karma-runner.github.io/), to run the unit tests you can either:
 
-Run them manually via Gulp:
-```bash
-# Run the unit tests under /tests
-gulp tests
-```
-
-Run them via Karma directly. Note that you need to have Karma CLI installed:
+Run them via Karma directly (recommended). Note that you need to have Karma CLI installed:
 ```bash
 # If you need to install Karma CLI, use the following command
 npm install -g karma-cli
@@ -67,6 +61,12 @@ npm install -g karma-cli
 ```bash
 # Once Karma CLI is installed, you can run the tests with:
 karma start
+```
+
+Run them manually via Gulp:
+```bash
+# Run the unit tests under /tests
+gulp tests
 ```
 
 Run the ```watch-and-test``` task which compiles everything and runs the tests everytime a change is detected:
