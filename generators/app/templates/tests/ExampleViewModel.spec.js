@@ -20,7 +20,7 @@ define(['footwork', 'assets'], function(fw) {
       var $container = $(container);
 
       setTimeout(function() {
-        expect($('.someValue').text()).toEqual('testValue');
+        expect($container.find('.someValue').text()).toEqual('testValue');
         done();
       }, 20);
     });
