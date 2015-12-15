@@ -6,6 +6,7 @@ This is meant to be used as a base/example starting point for a FootworkJS web a
   * Includes r.js for optimization and includes example working build.js
 * Uses phantomjs and expect for unit tests (tests located in /tests)
 * Includes example viewModel, and component which are resolved and bootstrapped dynamically at run-time
+* Includes the Karma test runner, jasmine, etc, all pre-configured and ready to run out of the box.
 * Includes Bootstrap3 via Bower
 
 Files/directories of note:
