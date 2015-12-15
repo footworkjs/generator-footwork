@@ -10,7 +10,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'requirejs'],
+    frameworks: ['jasmine', 'requirejs', 'fixture'],
 
 
     // list of files / patterns to load in the browser
@@ -18,7 +18,7 @@ module.exports = function(config) {
       'public/scripts/require-config.js',
       'tests/test-main.js',
       'node_modules/jquery/dist/jquery.js',
-      'node_modules/jasmine-jquery/lib/jasmine-jquery.js',
+      'tests/fixtures/**/*.html',
       {pattern: 'tests/**/*.spec.js', included: false},
       {pattern: 'public/scripts/**/*.js', included: false},
       {pattern: 'public/bower_components/**/*.js', included: false}
@@ -34,6 +34,13 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      '**/*.html'   : ['html2js'],
+      '**/*.json'   : ['json_fixtures']
+    },
+
+
+    jsonFixturesPreprocessor: {
+      variableName: '__json__'
     },
 
 
@@ -53,7 +60,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_WARN,
 
 
     // enable / disable watching file and executing tests whenever any file changes
