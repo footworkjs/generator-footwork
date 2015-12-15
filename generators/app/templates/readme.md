@@ -10,12 +10,12 @@ This is meant to be used as a base/example starting point for a FootworkJS web a
 
 Files/directories of note:
 
-* ```<%= publicFolder %>/index.html``` - Main index HTML file
-* ```<%= publicFolder %>/scripts/main.js``` - Application main starting module
-* ```<%= publicFolder %>/scripts/app/assets.js``` - Footwork viewModel/component/etc asset registrations
-* ```<%= publicFolder %>/scripts/app/viewModel/ExampleViewModel.js``` - Example viewModel
-* ```<%= publicFolder %>/scripts/app/component/my-component``` - Example component
-* ```<%= publicFolder %>/scripts/require-config.js``` - RequireJS configuration
+* ```public/index.html``` - Main index HTML file
+* ```public/scripts/main.js``` - Application main starting module
+* ```public/scripts/app/assets.js``` - Footwork viewModel/component/etc asset registrations
+* ```public/scripts/app/viewModel/ExampleViewModel.js``` - Example viewModel
+* ```public/scripts/app/component/my-component``` - Example component
+* ```public/scripts/require-config.js``` - RequireJS configuration
 
 ------
 
@@ -104,6 +104,6 @@ gulp build-css
 ```
 
 ```bash
-# Bundle/optimize the javascript (the RequireJS config is located in <%= publicFolder %>/scripts/require-config.js)
+# Bundle/optimize the javascript (the RequireJS config is located in public/scripts/require-config.js)
 gulp build-js
 ```

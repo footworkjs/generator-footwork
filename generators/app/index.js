@@ -12,50 +12,18 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   prompting: function () {
-    var done = this.async();
+    // var done = this.async();
 
     this.log(chalk.red('FootworkJS') + ' application scaffolding generator.');
-
-    var prompts = [{
-      name: 'publicFolder',
-      message: 'What is the relative path to your public HTML folder?',
-      default: 'public'
-    }];
-
-    this.prompt(prompts, function (props) {
-      this.props = props;
-      done();
-    }.bind(this));
   },
 
   writing: function () {
-    var publicFolder = this.props.publicFolder;
-    var params = {
-      subPathsToRootPub: _.repeat(('..' + path.sep), publicFolder.split(path.sep).length),
-      publicFolder: publicFolder
-    };
-
-    this.log('Installing with public folder: ' + chalk.red(publicFolder));
-
-    this.directory('scripts', path.join(publicFolder, 'scripts'));
-    this.directory('css', path.join(publicFolder, 'css'));
+    this.directory('public', 'public');
     this.directory('tests', 'tests');
 
-    this.fs.copyTpl(
-      this.templatePath('require-config.js'),
-      this.destinationPath(path.join(publicFolder, 'scripts/require-config.js')),
-      params
-    );
-
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('readme.md'),
-      this.destinationPath('readme.md'),
-      params
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('index.html'),
-      this.destinationPath(path.join(publicFolder, 'index.html'))
+      this.destinationPath('readme.md')
     );
 
     this.fs.copy(
@@ -68,28 +36,24 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath('bower.json')
     );
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('gitignore'),
-      this.destinationPath('.gitignore'),
-      params
+      this.destinationPath('.gitignore')
     );
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('bowerrc'),
-      this.destinationPath('.bowerrc'),
-      params
+      this.destinationPath('.bowerrc')
     );
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('gulpfile.js'),
-      this.destinationPath('gulpfile.js'),
-      params
+      this.destinationPath('gulpfile.js')
     );
 
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('karma.conf.js'),
-      this.destinationPath('karma.conf.js'),
-      params
+      this.destinationPath('karma.conf.js')
     );
   },
 

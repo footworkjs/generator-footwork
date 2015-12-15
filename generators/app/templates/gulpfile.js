@@ -10,14 +10,14 @@ var Server = require('karma').Server;
 gulp.task('default', ['build-css', 'build-js']);
 
 gulp.task('build-js', function () {
-  var requireConfig = require(__dirname + '/<%= publicFolder %>/scripts/require-config.js');
+  var requireConfig = require(__dirname + '/public/scripts/require-config.js');
 
   return rjs.optimize(_.extend(requireConfig, {
     include: [ 'requireLib', 'text' ],
-    baseUrl: '<%= publicFolder %>/scripts/',
+    baseUrl: 'public/scripts/',
     name: 'app/main',
-    mainConfigFile: '<%= publicFolder %>/scripts/app/main.js',
-    out: '<%= publicFolder %>/scripts/main-build.js',
+    mainConfigFile: 'public/scripts/app/main.js',
+    out: 'public/scripts/main-build.js',
     wrap: {
       start: "(function() {",
       end: "}());"
@@ -26,14 +26,14 @@ gulp.task('build-js', function () {
 });
 
 gulp.task('build-css', function () {
-  return gulp.src('./<%= publicFolder %>/css/app.less')
+  return gulp.src('./public/css/app.less')
     .pipe(less({
       paths: [
         // base inclusion path for component
-        path.join(__dirname, '<%= publicFolder %>', 'scripts', 'app', 'component')
+        path.join(__dirname, 'public', 'scripts', 'app', 'component')
       ]
     }))
-    .pipe(gulp.dest('./<%= publicFolder %>/css'));
+    .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('watch', ['watch-css', 'watch-js']);
@@ -41,15 +41,15 @@ gulp.task('watch', ['watch-css', 'watch-js']);
 gulp.task('watch-and-test', ['watch-css', 'watch-js', 'watch-tests']);
 
 gulp.task('watch-css', function() {
-  gulp.watch('<%= publicFolder %>/**/*.less', ['build-css']);
+  gulp.watch('public/**/*.less', ['build-css']);
 });
 
 gulp.task('watch-js', function () {
-  gulp.watch(['<%= publicFolder %>/scripts/app/**/*.js', '<%= publicFolder %>/scripts/require-config.js'], ['build-js']);
+  gulp.watch(['public/scripts/app/**/*.js', 'public/scripts/require-config.js'], ['build-js']);
 });
 
 gulp.task('watch-tests', function () {
-  gulp.watch(['<%= publicFolder %>/scripts/app/**/*.js', '<%= publicFolder %>/scripts/require-config.js'], ['tests']);
+  gulp.watch(['public/scripts/app/**/*.js', 'public/scripts/require-config.js'], ['tests']);
 });
 
 gulp.task('tests', function (done) {
@@ -60,7 +60,7 @@ gulp.task('tests', function (done) {
 });
 
 gulp.task('webserver', function () {
-  gulp.src('<%= publicFolder %>')
+  gulp.src('public')
     .pipe(webserver({
       host: '0.0.0.0',
       // host: 'localhost',

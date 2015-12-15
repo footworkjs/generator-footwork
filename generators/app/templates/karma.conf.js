@@ -17,14 +17,17 @@ module.exports = function(config) {
     files: [
       'public/scripts/require-config.js',
       'tests/test-main.js',
+      'node_modules/jquery/dist/jquery.js',
+      'node_modules/jasmine-jquery/lib/jasmine-jquery.js',
       {pattern: 'tests/**/*.spec.js', included: false},
-      {pattern: '<%= publicFolder %>/scripts/app/**/*.js', included: false}
+      {pattern: 'public/scripts/**/*.js', included: false},
+      {pattern: 'public/bower_components/**/*.js', included: false}
     ],
 
 
     // list of files to exclude
     exclude: [
-      '<%= publicFolder %>/scripts/app/main.js'
+      'public/scripts/app/main.js',
     ],
 
 
@@ -50,7 +53,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // enable / disable watching file and executing tests whenever any file changes
