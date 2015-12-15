@@ -1,6 +1,6 @@
 define(['footwork', 'assets'], function(fw) {
 
-  describe('just checking', function() {
+  describe('ExampleViewModel', function() {
     beforeEach(function(){
       fixture.setBase('tests/fixtures');
     });
@@ -9,9 +9,9 @@ define(['footwork', 'assets'], function(fw) {
       fixture.cleanup()
     });
 
-    it('works for app', function(done) {
+    it('can be instantiated and bound declaratively', function(done) {
       // Generate a test DOM node container we will load our fixture HTML into
-      var container = makeTestContainer(fixture.load('ExampleViewModel.html'));
+      var container = makeTestContainer(fixture.load('ExampleViewModel.html', false));
 
       // Initialize footwork on that container
       fw.start(container);

@@ -9,7 +9,7 @@ define(['footwork', 'assets'], function(fw) {
       fixture.cleanup()
     });
 
-    it('works', function(done) {
+    it('can be instantiated and bound declaratively', function(done) {
       // Generate a test DOM node container we will load our fixture HTML into
       var container = makeTestContainer(fixture.load('my-component.html', false));
 
