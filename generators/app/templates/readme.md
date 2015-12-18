@@ -4,8 +4,8 @@ This is meant to be used as a base/example starting point for a FootworkJS web a
 * Uses [Gulp](http://gulpjs.com/) for tasks
 * Uses [RequireJS](http://requirejs.org/) + [text plugin](https://github.com/requirejs/text) (so Footwork can automatically load assets)
   * Includes r.js for optimization and includes example working build.js
-* Uses phantomjs and expect for unit tests (tests located in /tests)
 * Includes example viewModel, and component which are resolved and bootstrapped dynamically at run-time
+* Includes the [Karma](http://karma-runner.github.io) test runner, jasmine, etc, all pre-configured and ready to run out of the box.
 * Includes Bootstrap3 via Bower
 
 Files/directories of note:
@@ -52,13 +52,7 @@ You can now access the site at: [http://localhost:8000](http://localhost:8000) (
 
 The included test runner is [Karma](http://karma-runner.github.io/), to run the unit tests you can either:
 
-Run them manually via Gulp:
-```bash
-# Run the unit tests under /tests
-gulp tests
-```
-
-Run them via Karma directly. Note that you need to have Karma CLI installed:
+Run them via Karma directly (recommended). Note that you need to have Karma CLI installed:
 ```bash
 # If you need to install Karma CLI, use the following command
 npm install -g karma-cli
@@ -67,6 +61,12 @@ npm install -g karma-cli
 ```bash
 # Once Karma CLI is installed, you can run the tests with:
 karma start
+```
+
+Run them manually via Gulp:
+```bash
+# Run the unit tests under /tests
+gulp tests
 ```
 
 Run the ```watch-and-test``` task which compiles everything and runs the tests everytime a change is detected:

@@ -83,9 +83,22 @@ If you do not have a webserver ready to host this application, then you can use 
 gulp webserver
 ```
 
+You can now access the site at: [http://localhost:8000](http://localhost:8000) (or whatever host you have it running on, this assumes localhost)
+
 ### Running Unit Tests
 
 The included test runner is [Karma](http://karma-runner.github.io/), to run the unit tests you can either:
+
+Run them via Karma directly (recommended). Note that you need to have Karma CLI installed:
+```bash
+# If you need to install Karma CLI, use the following command
+npm install -g karma-cli
+```
+
+```bash
+# Once Karma CLI is installed, you can run the tests with:
+karma start
+```
 
 Run them manually via Gulp:
 ```bash
@@ -103,19 +116,6 @@ Run them automatically with a watch task which compiles everything and runs the 
 # Watch the Javascript files for changes, rebuild and run tests as needed
 gulp watch-and-test
 ```
-
-Run them via Karma directly. Note that you need to have Karma CLI installed:
-```bash
-# If you need to install Karma CLI, use the following command
-npm install -g karma-cli
-```
-
-```bash
-# Once Karma CLI is installed, you can run the tests with:
-karma start
-```
-
-You can now access the site at: [http://localhost:8000](http://localhost:8000) (or whatever host you have it running on, this assumes localhost)
 
 ## License
 
