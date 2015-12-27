@@ -74,6 +74,12 @@ Run the ```watch-and-test``` task which compiles everything and runs the tests e
 gulp watch-and-test
 ```
 
+NOTE: If you get a 'No binary for PhantomJS browser on your platform' error, do the following:
+```bash
+npm install -g phantomjs
+export PHANTOMJS_BIN=`which phantomjs`
+```
+
 ### Other Included Tasks
 
 The ```gulpfile.js``` included in this repository has several runnable tasks included with it, they are as follows:
