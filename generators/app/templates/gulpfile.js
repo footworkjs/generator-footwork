@@ -6,6 +6,22 @@ var watch = require('gulp-watch');
 var webserver = require('gulp-webserver');
 var path = require('path');
 var Server = require('karma').Server;
+var plumber = require('gulp-plumber');
+
+var _gulpsrc = gulp.src;
+gulp.src = function() {
+  return _gulpsrc.apply(gulp, arguments)
+    .pipe(plumber({
+      errorHandler: function(error) {
+        notify.onError({
+          title: "Gulp Error",
+          message: "Error: <%= error.message %>",
+          sound: "Bottle"
+        })(error);
+        this.emit('end');
+      }
+    }));
+};
 
 gulp.task('default', ['build-css', 'build-js']);
 

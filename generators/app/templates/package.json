@@ -12,6 +12,8 @@
     "expect": "1.13.2",
     "gulp-watch": "4.3.5",
     "gulp-less": "3.0.5",
+    "gulp-plumber": "1.0.1",
+    "gulp-notify": "2.2.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.16",
     "karma-fixture": "^0.2.5",
