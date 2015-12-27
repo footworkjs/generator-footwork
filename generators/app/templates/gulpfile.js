@@ -7,6 +7,7 @@ var webserver = require('gulp-webserver');
 var path = require('path');
 var Server = require('karma').Server;
 var plumber = require('gulp-plumber');
+var notify = require('gulp-notify');
 
 var _gulpsrc = gulp.src;
 gulp.src = function() {
@@ -45,7 +46,7 @@ gulp.task('build-css', function () {
   return gulp.src('./public/css/app.less')
     .pipe(less({
       paths: [
-        // base inclusion path for component
+        // base inclusion path for components
         path.join(__dirname, 'public', 'scripts', 'app', 'component')
       ]
     }))

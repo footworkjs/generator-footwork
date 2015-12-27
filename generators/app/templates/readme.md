@@ -55,7 +55,7 @@ The included test runner is [Karma](http://karma-runner.github.io/), to run the 
 Run them via Karma directly (recommended). Note that you need to have Karma CLI installed:
 ```bash
 # If you need to install Karma CLI, use the following command
-npm install -g karma-cli
+sudo npm install -g karma-cli
 ```
 
 ```bash
@@ -74,9 +74,9 @@ Run the ```watch-and-test``` task which compiles everything and runs the tests e
 gulp watch-and-test
 ```
 
-NOTE: If you get a 'No binary for PhantomJS browser on your platform' error, do the following:
+**NOTE:** If you get a 'No binary for PhantomJS browser on your platform' error, do the following:
 ```bash
-npm install -g phantomjs
+sudo npm install -g phantomjs
 export PHANTOMJS_BIN=`which phantomjs`
 ```
 
