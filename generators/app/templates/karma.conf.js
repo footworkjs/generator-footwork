@@ -10,14 +10,14 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'requirejs', 'fixture'],
+    frameworks: ['jasmine-jquery', 'jasmine', 'requirejs', 'fixture'],
 
 
     // list of files / patterns to load in the browser
     files: [
       { pattern: 'public/app/config/require-config.js', nocache: true },
-      'tests/test-main.js',
-      'tests/footwork-test-helper.js',
+      'tests/include/test-main.js',
+      'tests/include/footwork-test-helper.js',
       'node_modules/jquery/dist/jquery.js',
       'tests/fixtures/**/*.html',
       { pattern: 'tests/**/*.spec.js', included: false },

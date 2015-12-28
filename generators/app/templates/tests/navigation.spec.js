@@ -1,6 +1,6 @@
 define(['footwork', 'assets'], function(fw) {
 
-  describe('ExampleViewModel', function() {
+  describe('navigation component', function() {
     beforeEach(function(){
       fixture.setBase('tests/fixtures');
     });
@@ -11,7 +11,10 @@ define(['footwork', 'assets'], function(fw) {
 
     it('can be instantiated and bound declaratively', function(done) {
       // Generate a test DOM node container we will load our fixture HTML into
-      var container = makeTestContainer(fixture.load('ExampleViewModel.html', false));
+      var container = makeTestContainer(fixture.load('navigation-component.html'));
+
+      // Record the number of instantiated Navigation viewModels before starting
+      var numNavsBefore = fw.viewModel.getAll('Navigation').length || 0;
 
       // Initialize footwork on that container
       fw.start(container);
@@ -20,7 +23,11 @@ define(['footwork', 'assets'], function(fw) {
       var $container = $(container);
 
       setTimeout(function() {
-        expect($container.find('.someValue').text()).toEqual('testValue');
+        // expect that we should have 1 more nav than before
+        expect(fw.viewModel.getAll('Navigation').length).toBe(numNavsBefore + 1);
+
+        // using jasmine-jquery (https://github.com/velesin/jasmine-jquery) we can do easy DOM tests/validations
+        expect($container).toContainText('Navigation');
         done();
       }, 20);
     });

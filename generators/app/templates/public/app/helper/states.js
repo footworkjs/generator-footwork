@@ -1,6 +1,6 @@
-define(["footwork"],
-  function(fw) {
-    return [
+define([],
+  function() {
+    return {
       "AL": "Alabama",
       "AK": "Alaska",
       "AZ": "Arizona",
@@ -52,6 +52,6 @@ define(["footwork"],
       "WV": "West Virginia",
       "WI": "Wisconsin",
       "WY": "Wyoming"
-    ];
+    };
   }
 );
