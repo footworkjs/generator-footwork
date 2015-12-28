@@ -8,23 +8,25 @@
     "path": "*"
   },
   "devDependencies": {
-    "gulp-webserver": "0.9.1",
     "expect": "1.13.2",
-    "gulp-watch": "4.3.5",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-less": "3.0.5",
-    "gulp-plumber": "1.0.1",
+    "gulp-minify-css": "^1.2.2",
     "gulp-notify": "2.2.0",
+    "gulp-plumber": "1.0.1",
+    "gulp-watch": "4.3.5",
+    "gulp-webserver": "0.9.1",
     "jasmine-core": "^2.4.1",
+    "jquery": "2.1.4",
     "karma": "^0.13.16",
     "karma-fixture": "^0.2.5",
     "karma-html2js-preprocessor": "^0.1.0",
     "karma-jasmine": "^0.3.6",
     "karma-json-fixtures-preprocessor": "0.0.5",
     "karma-phantomjs-launcher": "^0.2.2",
-    "phantomjs": "^1.9.19",
     "karma-requirejs": "^0.2.2",
     "karma-spec-reporter": "0.0.23",
-    "jquery": "2.1.4"
+    "phantomjs": "^1.9.19"
   },
   "scripts": {
     "test": "./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"

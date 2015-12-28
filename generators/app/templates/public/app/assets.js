@@ -5,11 +5,13 @@
  */
 define(["footwork"],
   function(fw) {
-    fw.viewModel.registerLocation('ExampleViewModel', 'app/viewModel/ExampleViewModel.js');
+    fw.router.registerLocation('Router', 'Router.js');
 
-    fw.components.registerLocation('my-component', {
-      viewModel: 'app/component/my-component/',
-      template: 'app/component/my-component/'
+    fw.components.registerLocation('navigation', {
+      viewModel: 'component/navigation/',
+      template: 'component/navigation/'
     });
+
+    fw.outlet.registerViewLocation(/.*-page/, '../pages/');
   }
 );

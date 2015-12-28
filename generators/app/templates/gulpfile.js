@@ -8,7 +8,10 @@ var path = require('path');
 var Server = require('karma').Server;
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
+var autoprefixer = require('gulp-autoprefixer');
+var minifyCss = require('gulp-minify-css');
 
+// Plumb all streams through gulp-plumber for error handling
 var _gulpsrc = gulp.src;
 gulp.src = function() {
   return _gulpsrc.apply(gulp, arguments)
@@ -27,14 +30,20 @@ gulp.src = function() {
 gulp.task('default', ['build-css', 'build-js']);
 
 gulp.task('build-js', function () {
-  var requireConfig = require(__dirname + '/public/scripts/require-config.js');
+  var requireConfig = require(__dirname + '/public/app/require-config.js');
+
+  // Minification of KnockoutJS requires us to use the production/pre-compiled version in the build
+  // See: https://github.com/knockout/knockout/issues/1894
+  if(_.isObject(requireConfig.paths) && _.isString(requireConfig.paths.knockout)) {
+    requireConfig.paths.knockout = requireConfig.paths.knockout.replace(/.debug$/, '');
+  }
 
   return rjs.optimize(_.extend(requireConfig, {
     include: [ 'requireLib', 'text' ],
-    baseUrl: 'public/scripts/',
-    name: 'app/main',
-    mainConfigFile: 'public/scripts/app/main.js',
-    out: 'public/scripts/main-build.js',
+    baseUrl: 'public/app/',
+    name: 'main',
+    mainConfigFile: 'public/app/main.js',
+    out: 'public/app.js',
     wrap: {
       start: "(function() {",
       end: "}());"
@@ -47,9 +56,14 @@ gulp.task('build-css', function () {
     .pipe(less({
       paths: [
         // base inclusion path for components
-        path.join(__dirname, 'public', 'scripts', 'app', 'component')
+        path.join(__dirname, 'public', 'app', 'component')
       ]
     }))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(minifyCss())
     .pipe(gulp.dest('./public/css'));
 });
 
@@ -58,15 +72,15 @@ gulp.task('watch', ['watch-css', 'watch-js']);
 gulp.task('watch-and-test', ['watch-css', 'watch-js', 'watch-tests']);
 
 gulp.task('watch-css', function() {
-  gulp.watch('public/**/*.less', ['build-css']);
+  gulp.watch('public/css/**/*.less', ['build-css']);
 });
 
 gulp.task('watch-js', function () {
-  gulp.watch(['public/scripts/app/**/*.js', 'public/scripts/require-config.js'], ['build-js']);
+  gulp.watch(['public/app/**/*.js', 'public/app/**/*.html'], ['build-js']);
 });
 
 gulp.task('watch-tests', function () {
-  gulp.watch(['public/scripts/app/**/*.js', 'public/scripts/require-config.js'], ['tests']);
+  gulp.watch(['public/app/**/*.js', 'public/app/**/*.html'], ['tests']);
 });
 
 gulp.task('tests', function (done) {

@@ -1,13 +1,18 @@
 // NOTE: Paths for @import directives are specified in gulpfile.js in the 'build-css' task
 
-// Component inclusions
-@import "my-component/my-component.less";
+@footerHeight: 100px;
+@pageBackground: #f9f9f9;
 
 html, body {
-  background: #f9f9f9;
+  background: @pageBackground;
 }
 
-viewModel[module="ExampleViewModel"] {
-  display: block;
-  margin: 20px;
-}
+@import "../bower_components/bootstrap/less/bootstrap.less";
+@import "../bower_components/footwork/dist/animation/animation.less";
+@import "include/force-footer-down.less";
+
+@import "module/header.less";
+@import "module/footer.less";
+
+// Component inclusions
+@import "navigation/navigation.less";

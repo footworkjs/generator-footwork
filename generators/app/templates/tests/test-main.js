@@ -27,3 +27,4 @@ for (var property in REQUIRECONFIG.paths) {
 }
 
 require.config(REQUIRECONFIG);
+require([]);
