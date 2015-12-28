@@ -5,7 +5,7 @@
  */
 define(["footwork"],
   function(fw) {
-    fw.router.registerLocation('Router', 'Router.js');
+    fw.router.registerLocation('MainRouter', 'router.js');
 
     fw.components.registerLocation('navigation', {
       viewModel: 'component/navigation/',

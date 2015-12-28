@@ -30,7 +30,7 @@ gulp.src = function() {
 gulp.task('default', ['build-css', 'build-js']);
 
 gulp.task('build-js', function () {
-  var requireConfig = require(__dirname + '/public/app/require-config.js');
+  var requireConfig = require(__dirname + '/public/app/config/require-config.js');
 
   // Minification of KnockoutJS requires us to use the production/pre-compiled version in the build
   // See: https://github.com/knockout/knockout/issues/1894
@@ -64,7 +64,7 @@ gulp.task('build-css', function () {
       cascade: false
     }))
     .pipe(minifyCss())
-    .pipe(gulp.dest('./public/css'));
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('watch', ['watch-css', 'watch-js']);
