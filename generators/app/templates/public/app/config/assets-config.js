@@ -3,13 +3,16 @@
  *    1. Tells footwork where assets are located.
  *    2. Loads them via RequireJS and registers them with footwork ahead of time (ie: if you want to be able to optimize it into the final build)
  */
-define(["footwork"],
-  function(fw) {
-    fw.router.registerLocation('MainRouter', 'router.js');
+define(["footwork", "router",
+  "component/navigation/navigation", "text!component/navigation/navigation.html"],
+  function(fw, router,
+    navigation, navigationTemplate) {
 
-    fw.components.registerLocation('navigation', {
-      viewModel: 'component/navigation/',
-      template: 'component/navigation/'
+    fw.router.register('MainRouter', router);
+
+    fw.components.register('navigation', {
+      viewModel: navigation,
+      template: navigationTemplate
     });
 
     fw.outlet.registerViewLocation(/.*-page/, '../pages/');

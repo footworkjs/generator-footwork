@@ -15,13 +15,15 @@
   <body>
     <router module="MainRouter">
       <main>
-        <navigation></navigation>
+        <header>
+          <navigation></navigation>
+        </header>
 
         <outlet name="mainContent"></outlet>
         <div class="push"></div>
       </main>
 
-      <footer>this is the footer</footer>
+      <footer><a href="http://footworkjs.com">footwork.js</a></footer>
     </router>
 
     <!-- RequireJS configuration needed for both the built and non-built versions of the application -->

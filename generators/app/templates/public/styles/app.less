@@ -1,18 +1,21 @@
 // NOTE: Paths for @import directives are specified in gulpfile.js in the 'build-css' task
 
-@footerHeight: 100px;
-@pageBackground: #f9f9f9;
+@footer-height: 100px;
+@page-width: 940px;
 
-html, body {
-  background: @pageBackground;
-}
-
+// Twitter Bootstrap
 @import "../bower_components/bootstrap/less/bootstrap.less";
+
+// Footwork animations
 @import "../bower_components/footwork/dist/animation/animation.less";
+
+// Force the footer to the bottom of the page
 @import "include/force-footer-down.less";
 
+// Styles for primary areas of the application
 @import "module/header.less";
+@import "module/main.less";
 @import "module/footer.less";
 
-// Component inclusions
+// Component style inclusions
 @import "navigation/navigation.less";

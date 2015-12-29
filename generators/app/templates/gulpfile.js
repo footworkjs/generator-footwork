@@ -9,7 +9,9 @@ var Server = require('karma').Server;
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
 var autoprefixer = require('gulp-autoprefixer');
-var minifyCss = require('gulp-minify-css');
+var sourcemaps = require('gulp-sourcemaps');
+var rename = require('gulp-rename');
+var insert = require('gulp-insert');
 
 // Plumb all streams through gulp-plumber for error handling
 var _gulpsrc = gulp.src;
@@ -27,7 +29,7 @@ gulp.src = function() {
     }));
 };
 
-gulp.task('default', ['build-css', 'build-js']);
+gulp.task('default', ['build-styles', 'build-js']);
 
 gulp.task('build-js', function () {
   var requireConfig = require(__dirname + '/public/app/config/require-config.js');
@@ -51,28 +53,31 @@ gulp.task('build-js', function () {
   }));
 });
 
-gulp.task('build-css', function () {
-  return gulp.src('./public/css/app.less')
-    .pipe(less({
-      paths: [
-        // base inclusion path for components
-        path.join(__dirname, 'public', 'app', 'component')
-      ]
-    }))
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe(minifyCss())
-    .pipe(gulp.dest('./public'));
+gulp.task('build-styles', function () {
+  var LessPluginCleanCSS = require("less-plugin-clean-css");
+  var cleancss = new LessPluginCleanCSS({ advanced: true });
+  var LessPluginAutoPrefix = require('less-plugin-autoprefix');
+  var autoprefix = new LessPluginAutoPrefix({ browsers: [ "last 2 versions" ] });
+
+  return gulp.src('./public/styles/app.less')
+  .pipe(sourcemaps.init())
+  .pipe(less({
+    paths: [
+      // base inclusion path for components
+      path.join(__dirname, 'public', 'app', 'component')
+    ],
+    plugins: [ autoprefix, cleancss ]
+   }))
+  .pipe(sourcemaps.write('./'))
+  .pipe(gulp.dest('./public'));
 });
 
-gulp.task('watch', ['watch-css', 'watch-js']);
+gulp.task('watch', ['watch-styles', 'watch-js']);
 
-gulp.task('watch-and-test', ['watch-css', 'watch-js', 'watch-tests']);
+gulp.task('watch-and-test', ['watch-styles', 'watch-js', 'watch-tests']);
 
-gulp.task('watch-css', function() {
-  gulp.watch('public/css/**/*.less', ['build-css']);
+gulp.task('watch-styles', function() {
+  gulp.watch(['public/styles/**/*.less', 'public/app/component/**/*.less'], ['build-styles']);
 });
 
 gulp.task('watch-js', function () {

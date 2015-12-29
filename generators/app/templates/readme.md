@@ -5,17 +5,22 @@ This is meant to be used as a base/example starting point for a FootworkJS web a
 * Uses [RequireJS](http://requirejs.org/) + [text plugin](https://github.com/requirejs/text) (so Footwork can automatically load assets)
   * Includes r.js for optimization and includes example working build.js
 * Includes example viewModel, and component which are resolved and bootstrapped dynamically at run-time
-* Includes the [Karma](http://karma-runner.github.io) test runner, jasmine, etc, all pre-configured and ready to run out of the box.
+* Includes the [Karma](http://karma-runner.github.io) test runner, all pre-configured and ready to run out of the box.
+  * [Jasmine](http://jasmine.github.io/) testing framework
+  * [jasmin-jquery](https://github.com/velesin/jasmine-jquery) for DOM validations
 * Includes Bootstrap3 via Bower
+* CSS concatentation and minification
+* CSS prefixing during build
 
 Files/directories of note:
 
 * ```public/index.html``` - Main index HTML file
-* ```public/scripts/main.js``` - Application main starting module
-* ```public/scripts/app/assets.js``` - Footwork viewModel/component/etc asset registrations
-* ```public/scripts/app/viewModel/ExampleViewModel.js``` - Example viewModel
-* ```public/scripts/app/component/my-component``` - Example component
-* ```public/scripts/require-config.js``` - RequireJS configuration
+* ```public/app/main.js``` - Application main starting module
+* ```public/app/router.js``` - router module
+* ```public/app/config/assets-config.js``` - Footwork viewModel/component/etc asset registrations
+* ```public/app/config/require-config.js``` - RequireJS configuration
+* ```public/app/app/component/navigation``` - Navigation component
+* ```tests``` - Unit tests
 
 ------
 
@@ -90,13 +95,13 @@ gulp
 ```
 
 ```bash
-# Watch the CSS and Javascript files for changes and recompile as needed
+# Watch the styles and Javascript files for changes and recompile as needed
 gulp watch
 ```
 
 ```bash
-# Watch the CSS files for changes and recompile as needed
-gulp watch-css
+# Watch the styles files for changes and recompile as needed
+gulp watch-styles
 ```
 
 ```bash
@@ -106,7 +111,7 @@ gulp watch-js
 
 ```bash
 # Compile the LESS into CSS
-gulp build-css
+gulp build-styles
 ```
 
 ```bash
