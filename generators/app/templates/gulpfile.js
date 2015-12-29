@@ -1,6 +1,6 @@
 var gulp = require('gulp');
-var rjs = require('requirejs');
 var _ = require('lodash');
+var requirejsOptimize = require('gulp-requirejs-optimize');
 var less = require('gulp-less');
 var watch = require('gulp-watch');
 var webserver = require('gulp-webserver');
@@ -8,10 +8,7 @@ var path = require('path');
 var Server = require('karma').Server;
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
-var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
-var rename = require('gulp-rename');
-var insert = require('gulp-insert');
 
 // Plumb all streams through gulp-plumber for error handling
 var _gulpsrc = gulp.src;
@@ -40,17 +37,22 @@ gulp.task('build-js', function () {
     requireConfig.paths.knockout = requireConfig.paths.knockout.replace(/.debug$/, '');
   }
 
-  return rjs.optimize(_.extend(requireConfig, {
-    include: [ 'requireLib', 'text' ],
-    baseUrl: 'public/app/',
-    name: 'main',
-    mainConfigFile: 'public/app/main.js',
-    out: 'public/app.js',
-    wrap: {
-      start: "(function() {",
-      end: "}());"
-    }
-  }));
+  return gulp.src('public/app/main.js')
+    .pipe(sourcemaps.init())
+    .pipe(requirejsOptimize(
+      _.extend(requireConfig, {
+        include: [ 'requireLib', 'text' ],
+        baseUrl: 'public/app/',
+        name: 'main',
+        out: 'app.js',
+        wrap: {
+          start: "(function() {",
+          end: "}());"
+        }
+      })
+    ))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('build-styles', function () {
@@ -66,7 +68,9 @@ gulp.task('build-styles', function () {
       // base inclusion path for components
       path.join(__dirname, 'public', 'app', 'component')
     ],
-    plugins: [ autoprefix, cleancss ]
+    // cleancss bug is breaking the sourcemaps at the moment, hence it is disabled:
+    // https://github.com/jakubpawlowicz/clean-css/issues/593
+    plugins: [ autoprefix/*, cleancss*/ ]
    }))
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest('./public'));
