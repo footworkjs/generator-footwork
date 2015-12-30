@@ -52,7 +52,7 @@ gulp.task('build-js', function () {
       })
     ))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./public'));
+    .pipe(gulp.dest('./public/build'));
 });
 
 gulp.task('build-styles', function () {
@@ -73,7 +73,7 @@ gulp.task('build-styles', function () {
       plugins: [ autoprefix/*, cleancss*/ ]
      }))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./public'));
+    .pipe(gulp.dest('./public/build'));
 });
 
 gulp.task('watch', ['watch-styles', 'watch-js']);
