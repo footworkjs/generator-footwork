@@ -36,9 +36,11 @@ module.exports = function(config) {
       { pattern: 'public/bower_components/bootstrap/dist/**/*.js', watched: false, included: false }
     ],
 
+    // urls to proxy/map automatically
     proxies: {
       '/images/': '/base/public/images/'
     },
+
 
     // list of files to exclude
     exclude: [
@@ -54,6 +56,7 @@ module.exports = function(config) {
     },
 
 
+    // used by the fixture framework
     jsonFixturesPreprocessor: {
       variableName: '__json__'
     },
@@ -75,7 +78,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_WARN,
 
 
     // enable / disable watching file and executing tests whenever any file changes

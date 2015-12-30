@@ -3,7 +3,7 @@ define(["footwork"],
     return fw.viewModel.create({
       namespace: 'Navigation',
       initialize: function() {
-        this.me = fw.observable('my-component');
+        this.subreddit = fw.observable().receiveFrom('router', 'subreddit');
       }
     });
   }
