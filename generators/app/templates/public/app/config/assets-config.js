@@ -8,12 +8,14 @@ define(["footwork", "router",
   function(fw, router,
     navigation, navigationTemplate) {
 
-    fw.router.register('MainRouter', router);
+    fw.router.register('router', router);
 
     fw.components.register('navigation', {
       viewModel: navigation,
       template: navigationTemplate
     });
+
+    fw.components.registerLocation('subreddit', 'component/', true);
 
     fw.outlet.registerViewLocation(/.*-page/, '../pages/');
   }

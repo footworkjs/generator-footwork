@@ -1,14 +1,26 @@
 // Footer styling
 
 footer {
-  background: @navbar-inverse-bg;
-  color: @navbar-inverse-color;
-  padding: @padding-base-vertical @padding-base-horizontal;
+  position: relative;
   max-width: @page-width;
   margin: 0 auto;
   border-radius: @border-radius-base @border-radius-base 0 0;
   text-align: right;
-  color: @navbar-inverse-color;
+
+  .navbar-text {
+    float: right;
+  }
+
+  img.logo {
+    @logo-height: 75px;
+
+    position: absolute;
+    height: @logo-height;
+    top: 50%;
+    right: 20px;
+    opacity: 0.1;
+    margin-top: -(@logo-height/2);
+  }
 
   a {
     color: @navbar-inverse-color;

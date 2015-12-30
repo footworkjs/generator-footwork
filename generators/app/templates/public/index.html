@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <router module="MainRouter">
+    <router module="router">
       <main>
         <header>
           <navigation></navigation>
@@ -23,7 +23,12 @@
         <div class="push"></div>
       </main>
 
-      <footer><a href="http://footworkjs.com">footwork.js</a></footer>
+      <footer class="navbar-inverse">
+        <img class="logo" src="/images/footwork.svg">
+        <div class="navbar-text">
+          <em>A solid footing for web applications.</em>
+        </div>
+      </footer>
     </router>
 
     <!-- RequireJS configuration needed for both the built and non-built versions of the application -->

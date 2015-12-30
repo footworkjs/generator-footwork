@@ -56,24 +56,24 @@ gulp.task('build-js', function () {
 });
 
 gulp.task('build-styles', function () {
-  var LessPluginCleanCSS = require("less-plugin-clean-css");
-  var cleancss = new LessPluginCleanCSS({ advanced: true });
   var LessPluginAutoPrefix = require('less-plugin-autoprefix');
+  var LessPluginCleanCSS = require("less-plugin-clean-css");
   var autoprefix = new LessPluginAutoPrefix({ browsers: [ "last 2 versions" ] });
+  var cleancss = new LessPluginCleanCSS({ advanced: true });
 
   return gulp.src('./public/styles/app.less')
-  .pipe(sourcemaps.init())
-  .pipe(less({
-    paths: [
-      // base inclusion path for components
-      path.join(__dirname, 'public', 'app', 'component')
-    ],
-    // cleancss bug is breaking the sourcemaps at the moment, hence it is disabled:
-    // https://github.com/jakubpawlowicz/clean-css/issues/593
-    plugins: [ autoprefix/*, cleancss*/ ]
-   }))
-  .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest('./public'));
+    .pipe(sourcemaps.init())
+    .pipe(less({
+      paths: [
+        // base inclusion path for components
+        path.join(__dirname, 'public', 'app', 'component')
+      ],
+      // cleancss bug is breaking the sourcemaps at the moment, hence it is disabled:
+      // https://github.com/jakubpawlowicz/clean-css/issues/593
+      plugins: [ autoprefix/*, cleancss*/ ]
+     }))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('watch', ['watch-styles', 'watch-js']);

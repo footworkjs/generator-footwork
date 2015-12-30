@@ -27,7 +27,7 @@ define(['footwork', 'assets'], function(fw) {
         expect(fw.viewModel.getAll('Navigation').length).toBe(numNavsBefore + 1);
 
         // using jasmine-jquery (https://github.com/velesin/jasmine-jquery) we can do easy DOM tests/validations
-        expect($container).toContainText('Navigation');
+        expect($container).toContainElement('img.logo');
         done();
       }, 20);
     });
