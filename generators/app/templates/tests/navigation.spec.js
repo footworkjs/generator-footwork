@@ -15,7 +15,7 @@ define(['footwork', 'assets'], function(fw) {
       testContainer = makeTestContainer(fixture.load('navigation-component.html'));
 
       // Record the number of instantiated Navigation viewModels before starting
-      var numNavsBefore = fw.viewModel.getAll('Navigation').length || 0;
+      var numNavsBefore = fw.viewModel.getAll('Navigation').length;
 
       // Initialize footwork on that container
       fw.start(testContainer);
