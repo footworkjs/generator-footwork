@@ -1,3 +1,8 @@
-<div class="content fade-in">
-  sub-reddit
+<div class="content fade-in" data-bind="foreach: posts">
+  <div class="panel panel-default">
+    <div class="panel-heading" data-bind="html: title"></div>
+    <!-- ko if: selftext_html -->
+      <div class="panel-body" data-bind="html: selftext_html"></div>
+    <!-- /ko -->
+  </div>
 </div>
