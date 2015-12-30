@@ -1,14 +1,18 @@
 // NOTE: Paths for @import directives are specified in gulpfile.js in the 'build-css' task
 
-@footer-height: 100px;
-@page-width: 940px;
-
 // Twitter Bootstrap
 @import "../bower_components/bootstrap/less/bootstrap.less";
+
+@footer-height: 100px;
+@page-width: 940px;
 @navbar-height: 40px;
 @panel-default-border: #222;
 @panel-default-heading-bg: #444;
 @panel-default-text: contrast(@panel-default-heading-bg);
+
+html {
+  overflow-y: scroll;
+}
 
 // Footwork animations
 @import "../bower_components/footwork/dist/animation/animation.less";
@@ -23,3 +27,4 @@
 
 // Component style inclusions
 @import "navigation/navigation.less";
+@import "subreddit/subreddit.less";
