@@ -11,3 +11,11 @@ function makeTestContainer(theFixture) {
 
   return $container.get(0);
 }
+
+var _fixtureCleanup = fixture.cleanup;
+fixture.cleanup = function(container) {
+  require(['footwork'], function(fw) {
+    typeof container === 'object' && fw.removeNode(container);
+    _fixtureCleanup.call(fixture);
+  });
+};

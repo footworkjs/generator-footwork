@@ -1,4 +1,5 @@
 define(['footwork', 'assets'], function(fw) {
+  var testContainer;
 
   describe('navigation component', function() {
     beforeEach(function() {
@@ -6,25 +7,25 @@ define(['footwork', 'assets'], function(fw) {
     });
 
     afterEach(function() {
-      fixture.cleanup()
+      fixture.cleanup(testContainer);
     });
 
-    it('can be instantiated and bound declaratively', function(done) {
+    it('has the logo image in it', function(done) {
       // Generate a test DOM node container we will load our fixture HTML into
-      var container = makeTestContainer(fixture.load('navigation-component.html'));
+      testContainer = makeTestContainer(fixture.load('navigation-component.html'));
 
       // Record the number of instantiated Navigation viewModels before starting
       var numNavsBefore = fw.viewModel.getAll('Navigation').length || 0;
 
       // Initialize footwork on that container
-      fw.start(container);
+      fw.start(testContainer);
 
       setTimeout(function() {
         // expect that we should have 1 more Navigation instance than before
         expect(fw.viewModel.getAll('Navigation').length).toBe(numNavsBefore + 1);
 
         // using jasmine-jquery (https://github.com/velesin/jasmine-jquery) we can do easy DOM tests/validations
-        expect(container).toContainElement('img.logo');
+        expect(testContainer).toContainElement('img.logo');
         done();
       }, 20);
     });
