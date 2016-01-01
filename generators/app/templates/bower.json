@@ -6,6 +6,7 @@
   "dependencies": {
     "footwork": "#55dbf5dd96eddddf76e9aa67d30b733cf378fceb",
     "reqwest": "https://github.com/ded/reqwest.git#2.0.5",
+    "knockout.punches": "0.5.1",
     "bootstrap": "3.3.6",
     "knockout": "3.4.0",
     "lodash": "3.3.1",

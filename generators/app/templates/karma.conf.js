@@ -18,13 +18,13 @@ module.exports = function(config) {
       { pattern: 'public/app/config/require-config.js', nocache: true },
       'tests/include/test-main.js',
       'tests/include/footwork-test-helper.js',
-      'node_modules/jquery/dist/jquery.js',
       'tests/fixtures/**/*.html',
+      'tests/fixtures/**/*.json',
       { pattern: 'public/images/**/*', included: false, watched: false, served: true },
       { pattern: 'tests/**/*.spec.js', included: false, nocache: true },
       { pattern: 'public/app/**/*.js', included: false, nocache: true },
       { pattern: 'public/app/**/*.html', included: false, served: true, nocache: true },
-      { pattern: 'public/bower_components/footwork/dist/*.js', watched: false, included: false },
+      { pattern: 'public/bower_components/footwork/{dist,build}/*.js', watched: false, included: false },
       { pattern: 'public/bower_components/history.js/scripts/bundled/**/*.js', watched: false, included: false },
       { pattern: 'public/bower_components/postal.js/lib/*.js', watched: false, included: false },
       { pattern: 'public/bower_components/lodash/**/*.js', watched: false, included: false },
@@ -33,7 +33,8 @@ module.exports = function(config) {
       { pattern: 'public/bower_components/jquery/dist/*.js', watched: false, included: false },
       { pattern: 'public/bower_components/requirejs/*.js', watched: false, included: false },
       { pattern: 'public/bower_components/requirejs-text/*.js', watched: false, included: false },
-      { pattern: 'public/bower_components/bootstrap/dist/**/*.js', watched: false, included: false }
+      { pattern: 'public/bower_components/bootstrap/dist/**/*.js', watched: false, included: false },
+      { pattern: 'node_modules/jquery-mockjax/dist/*.js', watched: false, included: false }
     ],
 
     // urls to proxy/map automatically

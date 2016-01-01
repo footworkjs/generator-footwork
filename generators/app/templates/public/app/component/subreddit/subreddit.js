@@ -5,12 +5,14 @@ define(["footwork", "lodash"],
 
     var SubRedditPostsCollection = fw.collection.create({
       url: function() {
-        return 'https://www.reddit.com/r/' + subreddit() + '/.json?jsonp=getJSON';
+        return 'http://www.reddit.com/r/' + subreddit() + '/.json?jsonp=getJSON';
       },
       parse: function(response) {
         return response.data.children.map(function(rowData) {
-          rowData.data.selftext_html = _.unescape(rowData.data.selftext_html);
-          return rowData.data;
+          var post = rowData.data;
+          post.selftext_html = _.unescape(rowData.data.selftext_html);
+          post.href = post.is_self ? 'http://reddit.com' + post.permalink : post.url;
+          return post;
         });
       }
     });
@@ -34,5 +36,6 @@ define(["footwork", "lodash"],
         window.subreddit = this;
       }
     });
+
   }
 );

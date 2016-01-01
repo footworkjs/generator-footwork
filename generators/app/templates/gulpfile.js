@@ -17,9 +17,9 @@ gulp.src = function() {
     .pipe(plumber({
       errorHandler: function(error) {
         notify.onError({
-          title: "Gulp Error",
-          message: "Error: <%= error.message %>",
-          sound: "Bottle"
+          title: 'Gulp Error',
+          message: 'Error: <%= error.message %>',
+          sound: 'Bottle'
         })(error);
         this.emit('end');
       }
@@ -46,8 +46,8 @@ gulp.task('build-js', function () {
         name: 'main',
         out: 'app.js',
         wrap: {
-          start: "(function() {",
-          end: "}());"
+          start: '(function() {',
+          end: '}());'
         }
       })
     ))
@@ -57,8 +57,8 @@ gulp.task('build-js', function () {
 
 gulp.task('build-styles', function () {
   var LessPluginAutoPrefix = require('less-plugin-autoprefix');
-  var LessPluginCleanCSS = require("less-plugin-clean-css");
-  var autoprefix = new LessPluginAutoPrefix({ browsers: [ "last 2 versions" ] });
+  var LessPluginCleanCSS = require('less-plugin-clean-css');
+  var autoprefix = new LessPluginAutoPrefix({ browsers: [ 'last 2 versions', '> 5%', 'ie 9', 'ie 10'] });
   var cleancss = new LessPluginCleanCSS({ advanced: true });
 
   return gulp.src('./public/styles/app.less')

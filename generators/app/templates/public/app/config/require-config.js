@@ -3,7 +3,7 @@ var REQUIRECONFIG = {
   paths: {
     "requireLib": "../bower_components/requirejs/require",
     "text": "../bower_components/requirejs-text/text",
-    "footwork": "../bower_components/footwork/dist/footwork-bare-reqwest",
+    "footwork": "../bower_components/footwork/build/footwork-bare-jquery",
     "knockout": "../bower_components/knockout/dist/knockout.debug",
     "reqwest": "../bower_components/reqwest/reqwest",
     "postal": "../bower_components/postal.js/lib/postal",

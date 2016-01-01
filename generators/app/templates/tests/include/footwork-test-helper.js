@@ -13,8 +13,17 @@ function makeTestContainer(theFixture) {
 }
 
 var fw;
-require(['footwork'], function(footwork) {
+var $;
+var _;
+require(['footwork', 'lodash', 'jquery', '../../node_modules/jquery-mockjax/dist/jquery.mockjax'], function(footwork, lodash, jQuery) {
   fw = footwork;
+  $ = jQuery;
+  _ = lodash;
+
+  _.extend($.mockjaxSettings, {
+    logging: false,
+    responseTime: 5
+  });
 });
 
 var _fixtureCleanup = fixture.cleanup;

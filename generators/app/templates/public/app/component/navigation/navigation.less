@@ -24,4 +24,28 @@ navigation {
     color: white;
     font-weight: bold;
   }
+
+
+  @media (max-width: @screen-desktop) {
+    text-align: center;
+
+    .navbar-brand {
+      display: block;
+      float: none;
+
+      img {
+        display: inline;
+      }
+    }
+  }
+
+  @media (max-width: @screen-tablet) {
+    .navbar {
+      border-radius: 0;
+    }
+
+    .sub-reddit {
+      display: none;
+    }
+  }
 }

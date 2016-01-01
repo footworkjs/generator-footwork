@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 
     <link rel="stylesheet" href="build/app.css">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
   </head>
 
   <body>
@@ -24,17 +25,16 @@
       </main>
 
       <footer class="navbar-inverse">
-        <img class="logo" src="/images/foot.svg">
+        <img class="logo" src="images/foot.svg">
         <div class="navbar-text">
           <em>A solid footing for web applications.</em>
         </div>
       </footer>
     </router>
 
-    <!-- RequireJS configuration needed for both the built and non-built versions of the application -->
     <script src="app/config/require-config.js"></script>
-
     <script src="bower_components/requirejs/require.js" data-main="app/main"></script>
+
     <!-- To run built/minified version use the following instead of the previous: -->
     <!--<script src="build/app.js"></script>-->
   </body>

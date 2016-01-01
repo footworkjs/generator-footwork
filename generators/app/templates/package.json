@@ -1,7 +1,7 @@
 {
   "private": true,
   "dependencies": {
-    "gulp": "3.9.0",
+    "gulp": "*",
     "requirejs": "2.1.22",
     "requirejs-text": "2.0.12",
     "lodash": "3.10.1",
@@ -28,6 +28,7 @@
     "karma-phantomjs-launcher": "^0.2.2",
     "karma-requirejs": "^0.2.2",
     "karma-spec-reporter": "0.0.23",
+    "jquery-mockjax": "2.0.1",
     "phantomjs": "^1.9.19"
   },
   "scripts": {
