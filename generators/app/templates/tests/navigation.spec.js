@@ -1,15 +1,6 @@
 define(['footwork', 'assets'], function(fw) {
-  var testContainer;
 
   describe('navigation component', function() {
-    beforeEach(function() {
-      fixture.setBase('tests/fixtures');
-    });
-
-    afterEach(function() {
-      fixture.cleanup(testContainer);
-    });
-
     it('has the logo image in it', function(done) {
       // Generate a test DOM node container we will load our fixture HTML into
       testContainer = makeTestContainer(fixture.load('navigation-component.html'));

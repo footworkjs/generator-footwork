@@ -11,17 +11,9 @@ define(['footwork', 'assets'], function(fw) {
       subreddit.dispose();
     });
 
-    beforeEach(function() {
-      fixture.setBase('tests/fixtures');
-    });
-    afterEach(function() {
-      fixture.cleanup(testContainer);
-    });
-
     it('can load subreddit data', function(done) {
       var mockSubreddit = '__mocked_data';
       $.mockjax({
-        responseTime: 5,
         url: "/r/" + mockSubreddit + "/*",
         responseText: fixture.load('reddit-data.json')
       });
@@ -35,7 +27,7 @@ define(['footwork', 'assets'], function(fw) {
       fw.start(testContainer);
 
       setTimeout(function() {
-        expect($(testContainer).find('.panel').length).toBeGreaterThan(3);
+        expect(testContainer).toContainElement('.post');
         done();
       }, 20);
     });
