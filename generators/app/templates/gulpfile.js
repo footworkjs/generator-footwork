@@ -45,6 +45,7 @@ gulp.task('build-js', function () {
         baseUrl: 'public/app/',
         name: 'main',
         out: 'app.js',
+        // optimize: 'none', // uncomment this line to disable minification
         wrap: {
           start: '(function() {',
           end: '}());'

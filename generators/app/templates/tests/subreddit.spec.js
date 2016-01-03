@@ -2,8 +2,9 @@ define(['footwork', 'assets'], function(fw) {
   var testContainer;
 
   describe('subreddit component', function() {
-    var subreddit;
+    var testContainer;
 
+    var subreddit;
     beforeAll(function() {
       subreddit = fw.observable().broadcastAs({ name: 'subreddit', 'namespace': 'router' });
     });
@@ -11,23 +12,39 @@ define(['footwork', 'assets'], function(fw) {
       subreddit.dispose();
     });
 
-    it('can load subreddit data', function(done) {
-      var mockSubreddit = '__mocked_data';
-      $.mockjax({
-        url: "/r/" + mockSubreddit + "/*",
-        responseText: fixture.load('reddit-data.json')
+    beforeEach(function() {
+      fixture.setBase('tests/fixtures');
+    });
+    afterEach(function() {
+      fixture.cleanup(testContainer);
+    });
+
+    it('can load and display subreddit data', function(done) {
+      var subredditName = '__mocked_data';
+      var mockRedditData = fixture.load('reddit-data.json');
+
+      var subRedditPosts = mockRedditData.data.children.map(function(rowData) {
+        var post = rowData.data;
+        return post;
       });
 
-      subreddit(mockSubreddit);
+      // feed the subreddit component with our test/mock subredditName
+      subreddit(subredditName);
 
-      // Generate a test DOM node container we will load our fixture HTML into
+      // mock the RESTful endpoint with the mockRedditData using our subredditName
+      $.mockjax({
+        url: "/r/" + subredditName + "/.json*",
+        responseText: mockRedditData
+      });
+
+      // Generate a test DOM node container we will load our subreddit component in
       testContainer = makeTestContainer('<subreddit></subreddit>');
 
-      // Initialize footwork on that container
+      // Initialize footwork on the container
       fw.start(testContainer);
 
       setTimeout(function() {
-        expect(testContainer).toContainElement('.post');
+        expect($(testContainer).find('.post').length).toBe(subRedditPosts.length);
         done();
       }, 20);
     });

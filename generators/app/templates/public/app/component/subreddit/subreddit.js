@@ -2,10 +2,13 @@ define(["footwork", "lodash"],
   function(fw, _) {
 
     var subreddit = fw.observable().receiveFrom('router', 'subreddit');
-
     var SubRedditPostsCollection = fw.collection.create({
       url: function() {
-        return 'http://www.reddit.com/r/' + subreddit() + '/.json?jsonp=getJSON';
+        return 'https://www.reddit.com/r/' + subreddit() + '/.json?jsonp=getJSON';
+      },
+      ajaxOptions: {
+        jsonpCallback: 'getJSON',
+        dataType: 'jsonp'
       },
       parse: function(response) {
         return response.data.children.map(function(rowData) {
@@ -20,20 +23,8 @@ define(["footwork", "lodash"],
     return fw.viewModel.create({
       namespace: 'subreddit',
       initialize: function() {
-
-        var self = this;
-        this.posts = new SubRedditPostsCollection();
-
-        function getRedditPosts() {
-          subreddit() && self.posts.fetch({
-            jsonpCallback: 'getJSON',
-            dataType: 'jsonp'
-          });
-        }
-        getRedditPosts();
-        this.subredditSub = subreddit.subscribe(getRedditPosts);
-
-        window.subreddit = this;
+        this.posts = SubRedditPostsCollection();
+        this.posts.fetch();
       }
     });
 

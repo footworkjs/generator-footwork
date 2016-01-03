@@ -26,12 +26,8 @@ require(['footwork', 'lodash', 'jquery', '../../node_modules/jquery-mockjax/dist
   });
 });
 
-var testContainer;
 var _fixtureCleanup = fixture.cleanup;
 fixture.cleanup = function(container) {
   typeof container === 'object' && fw.removeNode(container);
   _fixtureCleanup.call(fixture);
 };
-
-fixture.setBase('tests/fixtures');
-fixture.cleanup(testContainer);
