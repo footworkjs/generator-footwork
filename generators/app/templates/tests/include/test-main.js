@@ -15,7 +15,9 @@ Object.keys(window.__karma__.files).forEach(function(file) {
   if (TEST_REGEXP.test(file)) {
     allTestFiles.push(jsToModule(file));
   } else if (SRC_REGEXP.test(file) && JS_REGEXP.test(file) && !CONFIG_REGEXP.test(file) && !MAINFILE_REGEXP.test(file)) {
-    modules.push(jsToModule(file));
+    // disabled (used for coverage instrumentation) because modules do not match and are downloaded twice
+    // TODO: Fix so that the same module names are used in both places
+    // modules.push(jsToModule(file));
   }
 });
 

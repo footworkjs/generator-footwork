@@ -60,8 +60,8 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'tests/fixtures/**/*.html'   : ['html2js'],
-      'tests/fixtures/**/*.json'   : ['json_fixtures'],
-      'public/app/**/*.js': ['coverage']
+      'tests/fixtures/**/*.json'   : ['json_fixtures']
+      // 'public/app/**/*.js': ['coverage']
     },
 
 
@@ -74,13 +74,13 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['spec', 'coverage'],
+    reporters: ['spec'/*, 'coverage'*/],
 
 
-    coverageReporter: {
-      type : 'html',
-      dir : 'tests/coverage/'
-    },
+    // coverageReporter: {
+    //   type : 'html',
+    //   dir : 'tests/coverage/'
+    // },
 
 
     // web server port
@@ -93,7 +93,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_WARN,
 
 
     // enable / disable watching file and executing tests whenever any file changes
