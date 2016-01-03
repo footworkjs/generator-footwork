@@ -1,4 +1,4 @@
-define(['footwork', 'assets'], function(fw) {
+define(['footwork', 'config/asset-registration'], function(fw) {
 
   describe('navigation component', function() {
     var testContainer;

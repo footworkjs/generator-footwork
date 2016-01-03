@@ -27,19 +27,8 @@ var startTest = function () {
   });
 };
 
-var parentDir = /^\.\.\//;
-
 REQUIRECONFIG.baseUrl = '/base/public/' + REQUIRECONFIG.baseUrl;
 REQUIRECONFIG.deps = [REQUIRECONFIG.deps || []].concat(allTestFiles);
 REQUIRECONFIG.callback = startTest;
-for (var property in REQUIRECONFIG.paths) {
-  if (REQUIRECONFIG.paths.hasOwnProperty(property)) {
-    if(REQUIRECONFIG.paths[property].match(parentDir)) {
-      REQUIRECONFIG.paths[property] = REQUIRECONFIG.paths[property].replace(parentDir, '../');
-    } else {
-      REQUIRECONFIG.paths[property] = REQUIRECONFIG.paths[property];
-    }
-  }
-}
 
 require.config(REQUIRECONFIG);

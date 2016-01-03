@@ -1,6 +1,6 @@
 typeof REQUIRECONFIG === 'object' && require.config(REQUIRECONFIG);
 
-require(["footwork", "assets", "history"],
+require(["footwork", "config/asset-registration", "history"],
   function(fw) {
     fw.start();
 

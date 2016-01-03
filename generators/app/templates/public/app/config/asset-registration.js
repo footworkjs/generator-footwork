@@ -16,6 +16,9 @@ define(["footwork", "router",
     });
 
     fw.components.registerLocation('subreddit', 'component/', true);
+    fw.components.registerLocation('subreddit-post', {
+      template: 'component/subreddit/'
+    });
 
     fw.outlet.registerViewLocation(/.*-page/, '../pages/');
   }

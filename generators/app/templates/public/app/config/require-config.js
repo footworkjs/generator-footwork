@@ -14,8 +14,7 @@ var REQUIRECONFIG = {
     "postal": "../bower_components/postal.js/lib/postal",
     "lodash": "../bower_components/lodash/lodash",
     "jquery": "../bower_components/jquery/dist/jquery",
-    "history": "../bower_components/history.js/scripts/bundled/html5/native.history",
-    "assets": "config/assets-config"
+    "history": "../bower_components/history.js/scripts/bundled/html5/native.history"
   },
   waitSeconds: 1500
 };

@@ -1,4 +1,4 @@
-define(['footwork', 'assets'], function(fw) {
+define(['footwork', 'config/asset-registration'], function(fw) {
   var testContainer;
 
   describe('subreddit component', function() {
@@ -46,7 +46,7 @@ define(['footwork', 'assets'], function(fw) {
       setTimeout(function() {
         expect($(testContainer).find('.post').length).toBe(subRedditPosts.length);
         done();
-      }, 20);
+      }, 40);
     });
   });
 
