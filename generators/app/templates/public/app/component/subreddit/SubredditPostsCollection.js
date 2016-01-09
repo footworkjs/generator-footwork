@@ -15,7 +15,8 @@ define(["footwork", "lodash"],
         return response.data.children.map(function(rowData) {
           var post = rowData.data;
           post.selftext_html = _.unescape(rowData.data.selftext_html);
-          post.href = post.is_self ? 'http://reddit.com' + post.permalink : post.url;
+          post.comments_url = 'http://reddit.com' + post.permalink;
+          post.href = post.is_self ? post.comments_url : post.url;
           return post;
         });
       }

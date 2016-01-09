@@ -1,6 +1,8 @@
-<div class="post panel panel-default">
-  <div class="panel-heading"><a data-bind="html: title, attr: { href: url }"></a></div>
-  <!-- ko if: selftext_html -->
-    <div class="panel-body" data-bind="html: selftext_html"></div>
-  <!-- /ko -->
+<div class="post panel panel-default fade-in-from-bottom">
+  <a class="panel-heading" data-bind="html: title, attr: { href: href }"></a>
+  <div class="panel-body">
+    <a class="comments" data-bind="attr: { href: comments_url }">
+      <span class="num" data-bind="text: num_comments"></span> comments
+    </a>
+  </div>
 </div>
