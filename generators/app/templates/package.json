@@ -24,13 +24,15 @@
     "karma-fixture": "^0.2.5",
     "karma-html2js-preprocessor": "^0.1.0",
     "karma-jasmine": "^0.3.6",
+    "karma-jasmine-jquery": "^0.1.1",
     "karma-json-fixtures-preprocessor": "0.0.5",
     "karma-phantomjs-launcher": "^0.2.2",
-    "karma-requirejs": "^0.2.2",
+    "karma-requirejs": "^0.2.5",
     "karma-spec-reporter": "0.0.23",
     "less-plugin-autoprefix": "1.5.1",
     "less-plugin-clean-css": "1.5.1",
-    "phantomjs": "^1.9.19"
+    "phantomjs": "^1.9.19",
+    "requirejs": "^2.1.22"
   },
   "scripts": {
     "test": "./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"

@@ -5,7 +5,10 @@ define(["footwork", "lodash", "component/subreddit/SubredditPostsCollection"],
       namespace: 'subreddit',
       initialize: function() {
         this.posts = SubredditPostsCollection();
-        this.posts.fetch();
+        this.postFetch = this.posts.fetch();
+      },
+      resolved: function(resolve) {
+        resolve(this.postFetch);
       }
     });
 
