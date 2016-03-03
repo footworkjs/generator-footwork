@@ -1,7 +1,7 @@
 define(["footwork", "lodash"],
   function(fw, _) {
 
-    var subreddit = fw.observable().receiveFrom('router', 'subreddit');
+    var subreddit = fw.observable('javascript').receiveFrom('router', 'subreddit');
 
     return fw.collection.create({
       url: function() {

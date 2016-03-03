@@ -1,10 +1,10 @@
 {
-  "name": "FootworkJS Skeleton",
+  "name": "footwork-reddit",
   "version": "1.0",
-  "description": "FootworkJS Skeleton Application",
+  "description": "FootworkJS Skeleton Application - A subreddit reader with navigation.",
   "author": "Jonathan Newman <jonathan@staticty.pe>",
   "dependencies": {
-    "footwork": "#d25cfc8e7be8a6eb689c31ae15217ec595f1e42b",
+    "footwork": "#7cc010fd97c26916c03b5e17babe20d52ecedd37",
     "reqwest": "https://github.com/ded/reqwest.git#2.0.5",
     "bootstrap": "3.3.6",
     "knockout": "3.4.0",
